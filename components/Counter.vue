@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 
 const props = defineProps({
   count: {
     default: 0,
   },
-})
+});
 
-const counter = ref(props.count)
+const counter = ref(props.count);
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const counter = ref(props.count)
     <button
       border="r gray-400 opacity-50"
       p="2"
-      font="mono"
+      font="sans"
       outline="!none"
       hover:bg="gray-400 opacity-20"
       @click="counter -= 1"
@@ -26,7 +26,7 @@ const counter = ref(props.count)
     <button
       border="l gray-400 opacity-50"
       p="2"
-      font="mono"
+      font="sans"
       outline="!none"
       hover:bg="gray-400 opacity-20"
       @click="counter += 1"

@@ -1,29 +1,30 @@
 ---
-# try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
+theme: penguin
+title: "any and never and unknown"
+download: true
 background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
 class: "text-center"
-# https://sli.dev/custom/highlighters.html
-highlighter: shiki
-# show line numbers in code blocks
+colorSchema: "dark"
+favicon: "./about.jpg"
 lineNumbers: false
-# some information about the slides, markdown enabled
 info: |
   ## Slidev Starter Template
   Presentation slides for developers.
 
   Learn more at [Sli.dev](https://sli.dev)
-# persist drawings in exports and build
 drawings:
   persist: false
+layout: presenter
+presenterImage: "./about.jpg"
+fonts:
+  sans: "Poppins,Noto Sans JP"
+  # default
+  weights: "200,400,600"
+  # import italic fonts, default `false`
+  italic: false
 ---
 
-# any と never と unknown
-
-Presentation slides for developers
+<h1 class="h1">anyとneverとunknown</h1>
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -32,352 +33,406 @@ Presentation slides for developers
 </div>
 
 <div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
+  <a href="https://github.com/helloiamktn0908" target="_blank" alt="GitHub"
     class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
 </div>
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
 <style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
 }
 </style>
 
 ---
 
-# Navigation
+<h1 class="h1">any型とは</h1>
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+どのような値でも代入できる。
 
-### Keyboard Shortcuts
-
-|                                                    |                             |
-| -------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                | next animation or slide     |
-| <kbd>left</kbd> / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                      | previous slide              |
-| <kbd>down</kbd>                                    | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
-
----
-
-# Code
-
-Use code snippets and get the highlighting directly![^1]
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
-  role: string;
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id);
-  const newUser = { ...user, ...update };
-  saveUser(id, newUser);
-}
+```ts {all|1-2|1-3|1-4|all}
+let value: any;
+value = 1; //OK
+value = 'string'; //OK
+value = { name: "object" }; //OK 
 ```
 
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
+<br>
+<br>
 
 <style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
 }
 </style>
 
 ---
 
-# Components
+<h1 class="h1">any型とは</h1>
 
-<div grid="~ cols-2 gap-4">
-<div>
+コンパイラーが型チェックを行わないため、実行してからエラーになる。
 
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
+```ts
+const str: any = 123;
+str.toLowerCase(); //TypeError: str.toLowerCase is not a function
 ```
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
+<br>
+<br>
 
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
 
-</div>
-<div>
+---
 
-```html
-<Tweet id="1390115482657726468" />
+<h1 class="h1">どんな時に使う？</h1>
+
+- どんな時でも使える。
+- が、any型の濫用はJavaScriptを書いていることと同じなのでできるだけ使わない。
+
+<br>
+<br>
+
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
+
+---
+
+
+<h1 class="h1">unknown型とは</h1>
+
+どのような値でも代入できる(any型と同じ)。
+
+```ts {all|1-2|1-3|1-4|all}
+let value: unknown;
+value = 1; //OK
+value = 'string'; //OK
+value = { name: "object"}; //OK 
 ```
 
-<Tweet id="1390115482657726468" scale="0.65" />
+<br>
+<br>
 
-</div>
-</div>
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
 
 ---
 
-## class: px-20
+<h1 class="h1">unknown型とany型の違い</h1>
 
-# Themes
+unknown型の変数をunknownとany以外の変数に代入することはできない。<br/>
+型ガードがあれば代入可能。<br/>
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
 
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
+```ts
+let a: unknown;            // unknown 型変数
+let b1: unknown = a;       // unknown 型は unknown 型に代入可能
+let b2: any = a;           // unknown 型は any 型に代入可能
+let b3: number = a;        // ERROR: TS2322: unknown 型は number 型に代入不可能
+let b4: object = a;        // ERROR: TS2322: unknown 型は object 型に代入不可能
+let b5: {} = a;            // ERROR: TS2322: unknown 型は「{}」型に代入不可能
+let b6: undefined = a;     // ERROR: TS2322: unknown 型は undefined 型に代入不可能
+let b7: never = a;         // ERROR: TS2322: unknown 型は never 型に代入不可能
 ```
 
-```yaml
----
-theme: seriph
----
-```
+<br>
+<br>
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
 
 ---
 
-## preload: false
+<h1 class="h1">unknown型とany型の違い</h1>
 
-# Animations
+unknwon型は実行ができない。
 
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div v-motion :initial="{ x: -80 }" :enter="{ x: 0 }">Slidev</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
+```ts {1-2|3-4|5-10|all}
+const unknown1 = 0.8;
+console.log(unknown1.toFixed()); //Object is of type 'unknown'.
+const unknown2 = "riibekuntoofuro"; 
+console.log(unknown2.length) //Object is of type 'unknown'.
+const unknown3 = {
   x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
+  y: 1,
+  name: "origin",
+};
+console.log(unknown3.name) //Object is of type 'unknown'.
+```
 
 <br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
 <br>
 
-[Learn more](https://sli.dev/guide/syntax#latex)
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
 
 ---
 
-# Diagrams
+<h1 class="h1">どんな時に使う？</h1>
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+動的に型が変わる場合に使う。<br/>
+<!--anyでもいいのかもしれないが、anyを使った場合、その変数に対する型チェックが行われなくなるため、<br/>
+型ガードなどでチェックする前に、うっかり別の変数や引数などにその変数を指定したり、<br/>
+その変数に対するメンバーを参照したりして、予期しないランタイムエラーが起きる可能性がある。<br/>
+そこで「unknown 型」を使うことで、型ガードを入れないとほとんどの操作でエラーになるため、うっかりによる事故をある程度軽減することができる。-->
 
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
+```ts 
+declare const maybe: unknown;
+// 'maybe' could be a string, object, boolean, undefined, or other types
+const aNumber: number = maybe;
+//Type 'unknown' is not assignable to type 'number'.
+ 
+if (maybe === true) {
+  // TypeScript knows that maybe is a boolean now
+  const aBoolean: boolean = maybe;
+  // So, it cannot be a string
+  const aString: string = maybe;
+Type 'boolean' is not assignable to type 'string'.
+}
+ 
+if (typeof maybe === "string") {
+  // TypeScript knows that maybe is a string
+  const aString: string = maybe;
+  // So, it cannot be a boolean
+  const aBoolean: boolean = maybe;
+Type 'string' is not assignable to type 'boolean'.
+}
 ```
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
+<br>
+<br>
+
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
+
+---
+
+
+<h1 class="h1">ちなみに</h1>
+
+
+```ts 
+let p: number | unknown;   // unknown 型になる
+let q: number & unknown;   // number 型になる
+let m: null | unknown;     // unknown 型になる
+let n: null & unknown;     // null 型になる
 ```
 
-```plantuml {scale: 0.7}
-@startuml
+<br>
+<br>
 
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
 }
+</style>
 
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
+---
+
+
+<h1 class="h1">never型とは</h1>
+
+値を持たない型。<br/>
+never型はあらゆる型に代入可能であるが、never型にはnever型以外は代入できない。
+
+<br>
+<br>　
+
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
 }
+</style>
 
-cloud {
-  [Example 1]
+---
+
+
+<h1 class="h1">どんな時に使う？</h1>
+
+エラー処理の戻り値の型など、
+- 実行される可能性のあるreturn文が存在しないと判断できるとき
+- この関数は最後まで到達することはないと判断できるとき
+
+```ts
+// 最後まで到達しない関数はnever型の返り値となる
+// 必ず通過するthrow文により最後まで到達しない（到達する実行パスが存在しない）
+function error(message: string): never {
+    throw new Error(message);
 }
+// 推論される返り値はnever型
+// 上で作ったerror関数を返り値‍に指定してるので、必ず通過するthrow文により最後まで到達しない(到達する実行パスが存在しない）
+function fail(): never {
+    return error("Something failed");
+}
+// 最後まで到達しない関数はnever型の返り値となる
+// → 無限ループに必ず入る場合も throw 文を通る実行パスが無い場合と同様
+function infiniteLoop(): never {
+    while (true) {
+    }
+}
+```
 
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
 
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
+---
+
+<h1 class="h1">どんな時に使う？</h1>
+
+switch文の中でneverの出現を頼りに網羅的なチェックをすることができる
+
+```ts
+type Shape = Circle | Square;
+ 
+function getArea(shape: Shape) {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.sideLength ** 2;
+    default:
+      const _exhaustiveCheck: never = shape;
+      return _exhaustiveCheck;
   }
-  frame "Foo" {
-    [Frame 4]
-  }
 }
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
 ```
 
-</div>
 
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+<br>
+<br>
+
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
 
 ---
 
-layout: center
-class: text-center
+
+<h1 class="h1">どんな時に使う？</h1>
+
+switch文の中でneverの出現を頼りに網羅的なチェックをすることができる
+
+```ts
+interface Triangle {
+  kind: "triangle";
+  sideLength: number;
+}
+ 
+type Shape = Circle | Square | Triangle;
+ 
+function getArea(shape: Shape) {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.sideLength ** 2;
+    default:
+      const _exhaustiveCheck: never = shape;
+//Type 'Triangle' is not assignable to type 'never'.
+      return _exhaustiveCheck;
+  }
+}
+```
+
+<br>
+<br>
+
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
 
 ---
 
-# Learn More
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+<h1 class="h1">Void型と何が違うの？</h1>
+
+- Void型は関数が正常に終了した結果何も返さない時に使う型
+- Never型はそもそも関数が正常に終了しない時につかう型
+
+
+<br>
+<br>
+
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
+
+---
+
+
+
+<h1 class="h1">おわり</h1>
+
+
+
+<br>
+<br>
+
+<style>
+.h1 {
+font-family: Poppins, Noto Sans JP;
+font-weight: 600;
+font-style: normal;
+}
+</style>
+
+---
+
+

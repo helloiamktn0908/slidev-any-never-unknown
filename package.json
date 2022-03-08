@@ -3,12 +3,17 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
-    "export": "slidev export"
+    "export": "slidev export --format png"
   },
   "dependencies": {
     "@slidev/cli": "^0.28.8",
     "@slidev/theme-default": "*",
-    "@slidev/theme-seriph": "*"
+    "@slidev/theme-seriph": "*",
+    "slidev-theme-penguin": "^1.3.4"
   },
-  "name": "any-never-unknown"
+  "name": "any-never-unknown",
+  "devDependencies": {
+    "playwright-chromium": "^1.19.2",
+    "vite-svg-loader": "^3.1.2"
+  }
 }
